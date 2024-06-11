@@ -27,4 +27,15 @@ app.use(express.urlencoded({
 app.use(express.static("public"));
 
 
+
+
+// ROUTES IMPORT
+import userRouter from "./routes/user.routes.js";
+
+
+
+// DECLARATION OF ROUTES AND USAGE OF MIDDLE WARE TO IMPLEMENT THOSE ROUTES
+app.use("/api/v1", userRouter);
+
+
 export { app };

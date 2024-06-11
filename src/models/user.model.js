@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
     if(this.isModified("password")){ //if only password is modified then reencrpt or enterred for the sma time
-        this.password = bcrypt.hash(this.password, 10);
+        this.password = await bcrypt.hash(this.password, 10);
         next();
     }
     return next();
@@ -65,7 +65,7 @@ userSchema.methods.isPasswordCorrect = async function(password){
     return await bcrypt.compare(password, this.password);
 }
 
-// 
+// custom made jwt methods
 userSchema.methods.generateAccessToken = async function()
 {
     return jwt.sign(
