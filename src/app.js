@@ -35,7 +35,7 @@ import userRouter from "./routes/user.routes.js";
 
 
 // DECLARATION OF ROUTES AND USAGE OF MIDDLE WARE TO IMPLEMENT THOSE ROUTES
-app.use("/api/v1", userRouter);
+app.use("/api/v1/user", userRouter);
 
 
 export { app };
