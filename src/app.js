@@ -26,6 +26,9 @@ app.use(express.urlencoded({
 //4 To serve some public static assets
 app.use(express.static("public"));
 
+// 5 Using cookie parser
+app.use(cookieParser());
+
 
 
 
